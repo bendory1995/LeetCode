@@ -18,7 +18,7 @@ public class TwoSum {
         }
         return ans;
     }
-
+    //O(n) Solution
     public static int [] twoSumHashMap(int [] nums, int target){
         Map<Integer, Integer> map = new HashMap<>();
         int [] ans = new int [2];
