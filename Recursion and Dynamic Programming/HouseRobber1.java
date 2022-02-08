@@ -2,6 +2,7 @@ public class HouseRobber1 {
     public static void main(String[] args){
 
     } 
+    //Bottom Up Approach
     public static int rob(int [] nums){
         if(nums.length == 0) return 0;
         if(nums.length == 1) return nums[0];
