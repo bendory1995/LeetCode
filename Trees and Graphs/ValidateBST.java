@@ -1,19 +1,26 @@
-class ValidateBST{
-    public boolean isValidBTS(TreeNode root){
-        return validate(root, null, null);
-    }
+class ValidateBST{ 
+    public static class TreeNode {
+         int val;
+         TreeNode left;
+         TreeNode right;
+         TreeNode() {}
+         TreeNode(int val) { this.val = val; }
+         TreeNode(int val, TreeNode left, TreeNode right) {
+             this.val = val;
+             this.left = left;
+             this.right = right;
+         }    public static void main(String[] args){
 
-    public boolean validate(TreeNode root, Integer low, Integer high){
-        //For the end nodes
+    }
+    public boolean isValidBST(TreeNode root) {
+        return isValid(root, null, null);
+    }
+    public boolean isValid(TreeNode root, Integer min, Integer max){
         if(root == null) return true;
+        if(min != null && root.val <= min) return false;
+        if(max != null && root.val >= max) return false;
         
-        //This is the case when the values are higher/lower
-        if(low != null && root.val >= low) return false;
-        if(high != null && root.val <= high) return false;
-
-        //recursive call to check the tree nodes.
-       return validate(root.left, low, root.val) && validate(root.right, root.val, high); 
-
-
+        return isValid(root.left, min, root.val) && isValid(root.right,root.val, max);
     }
+}
 }
