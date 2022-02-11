@@ -25,9 +25,10 @@ public class JumpGame {
         
     }
     public static boolean canJumpFast(int[] nums){
-        int lastPos = nums.length - 1;
-        for (int i = nums.length - 1; i >= 0; i--) {
-            if (i + nums[i] >= lastPos) {
+        int lastPos = nums.length-1;
+        
+        for(int i = nums.length-1; i >= 0; i--){
+            if(i + nums[i] >= lastPos){
                 lastPos = i;
             }
         }
