@@ -5,15 +5,19 @@ public class KthSmallestElementBST{
     }
     public static int kthSmallest(TreeNode root, int k){
         List<Integer> list = new ArrayList<Integer>();
-        dfs(root, list);
-        Collections.sort(list);
+        inOrder(root, list, k);
         return list.get(k-1);
     }
-    public static void dfs(TreeNode root, List<Integer> list){
+    //Since we know that this is already a binary search tree,
+    //inOrder will give you an ordered list from smallest to largest.
+    public static void inOrder(TreeNode root, List<Integer> list, int k){
         if(root == null) return;
+        if(list.size() == k) return;
+
+        inOrder(root.left, list, k);
         list.add(root.val);
-        dfs(root.left, list);
-        dfs(root.right, list);
+        inOrder(root.right, list, k);
+        
     }
     public class TreeNode {
         int val;
@@ -26,4 +30,5 @@ public class KthSmallestElementBST{
             this.left = left;
             this.right = right;
         }
+    }
 }
