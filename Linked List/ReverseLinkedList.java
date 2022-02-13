@@ -7,21 +7,25 @@ public class ReverseLinkedList{
         ListNode next;
         ListNode() {}
         ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; 
+        }
     }
 
     public static ListNode reverseList(ListNode head){
         if(head == null) return null;
-        ListNode node = new ListNode();
-        node.val = head.val;
-        node.next = null;
-    while(head.next != null){
-        ListNode reverseNode = new ListNode();
-        reverseNode.val = head.next.val;
-        reverseNode.next = node;
-        node = reverseNode;
-        head = head.next;
-    }
-    return node;
+
+        ListNode temp = head;
+        ListNode ansNode = new ListNode();
+        ansNode.val = head.val;
+        ansNode.next = null;
+    
+        while(temp.next != null){
+            ListNode node = new ListNode();
+            node.val = temp.next.val;
+            node.next = ansNode;
+            ansNode = node;
+            temp = temp.next;
+        }
+        return ansNode;
     }
 }
