@@ -11,6 +11,8 @@ public class ReverseLinkedList{
         }
     }
 
+
+    //O(n)Time with O(n) Space because it's not Inplace
     public static ListNode reverseList(ListNode head){
         if(head == null) return null;
 
@@ -27,5 +29,33 @@ public class ReverseLinkedList{
             temp = temp.next;
         }
         return ansNode;
+    }
+
+    //we can do better by not creating new listnode
+    public static ListNode reverseList2(ListNode head){
+        ListNode prev = null;
+
+        while(head != null){
+            ListNode node = head.next;
+            head.next = prev;
+            prev = head;
+            head = node;
+        }
+        return prev;
+    }
+
+    //Recursive Solution 
+    public static ListNode reverseList3(ListNode head){
+        return recurse(head, null);
+    }
+    public static ListNode recurse(ListNode head, ListNode newHead){
+        if(head == null) return newHead;
+        
+        ListNode nextNode = head.next;
+        head.next = newHead;
+        newHead = head;
+        head = nextNode;
+        
+        return recurse(head, newHead);
     }
 }
