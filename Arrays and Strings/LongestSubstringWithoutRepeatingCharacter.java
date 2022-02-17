@@ -11,9 +11,16 @@ public class LongestSubstringWithoutRepeatingCharacter {
         int max = 0;
 
         while(fast < s.length()){
-            
+            if(!hashset.contains(s.charAt(fast))){
+                hashset.add(s.charAt(fast));
+                fast++;
+                max = Math.max(hashset.size(), max);
+            }else{
+                hashset.remove(s.charAt(slow));
+                slow++;
+            }
         }
-
+        return max;
     }
     
 }
