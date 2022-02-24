@@ -5,7 +5,6 @@ public class MissingNumber {
     }
     public static int missingNumber(int[] nums){
         HashSet<Integer> hs = new HashSet<>();
-
         for(int i = 0; i < nums.length; i++){
             hs.add(nums[i]);
         }
@@ -16,6 +15,15 @@ public class MissingNumber {
             }
         }
         return -1;
+    }
+
+    public static int missingNumber2(int [] nums){
+        int sum = (nums.length * (nums.length+1))/2;
+
+        for(int i = 0; i < nums.length; i++){
+            sum = sum - nums[i];
+        }
+        return sum;
     }
     
 }
