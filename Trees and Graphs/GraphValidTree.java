@@ -4,7 +4,7 @@ public class GraphValidTree {
     public static void main(String[] args){
 
     }
-    public static validTree(int n, int [][] edges){
+    public static boolean validTree(int n, int [][] edges){
         List<List<Integer>> list = new ArrayList<>();
 
         for(int i = 0; i < n ; i++){
