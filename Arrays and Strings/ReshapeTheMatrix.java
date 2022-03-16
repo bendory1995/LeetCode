@@ -16,5 +16,6 @@ public class ReshapeTheMatrix {
                 if(y == 0)x++;
             }
         }
+        return ans;
     } 
 }
