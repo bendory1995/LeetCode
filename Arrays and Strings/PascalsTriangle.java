@@ -22,6 +22,7 @@ public class PascalsTriangle {
             nextRow.add(1);
             list.add(nextRow);
         }
+        return list;
     }
     
 }
