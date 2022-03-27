@@ -4,13 +4,14 @@ public class BestTimeToBuySellStock{
     }
     //O(n) Solution
     public static int maxProfit(int[] prices) {
-        int max = 0;
-        int min = prices[0];
-
+        int maxProfit = 0;
+        int minPrice = prices[0];
+        int curProfit = 0;
         for(int i = 1; i < prices.length; i++){
-            if(min > prices[i]) min = prices[i];
-            if(max < prices[i] - min) max = prices[i]-min;
+            minPrice = Math.min(minPrice, prices[i]);
+            curProfit = prices[i] - minPrice;
+            maxProfit = Math.max(maxProfit, curProfit);
         }
-        return max;
+        return maxProfit;
     }
 }
