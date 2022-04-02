@@ -17,11 +17,11 @@ public class MaximumSubarray {
     }
     public int maxSubArray2(int [] nums){
         int currentMax = nums[0];
-        int totalMax = Integer.MIN_VALUE;
+        int totalMax = nums[0];
 
         for(int i = 1; i < nums.length; i++){
             currentMax = Math.max(currentMax + nums[i], nums[i]);
-            totalMax =  Math.max(totalMax, currentMax);
+            totalMax = Math.max(totalMax, currentMax);
         }
         return totalMax;
     }
